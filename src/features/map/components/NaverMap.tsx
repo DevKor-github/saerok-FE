@@ -198,7 +198,52 @@ const NaverMap = ({ mapRef, markers, center, onCenterChanged, onOverlayClick }: 
             if (node.nodeType === Node.TEXT_NODE) el.removeChild(node);
           });
           const span = el.querySelector("span");
-          if (span) span.textContent = count;
+
+          if (span) {
+            // 기본 색상 설정
+            let size = 35; // 기본 크기
+            let backgroundColor = "#F7BE65"; // 기본 배경 색상
+            let text = count.toString(); // 기본 텍스트
+
+            // 원의 크기와 색상, 텍스트 콘텐츠 설정
+            if (count > 5 && count <= 15) {
+              size = 35;
+              backgroundColor = "#F7BE65"; // 5~15일 경우 색상 변경
+              text = "5";
+            } else if (count > 15 && count <= 30) {
+              size = 40;
+              backgroundColor = "#F7A265"; // 15~30일 경우 색상 변경
+              text = "15";
+            } else if (count > 30 && count <= 50) {
+              size = 50;
+              backgroundColor = "#F77965"; // 30~50일 경우 색상 변경
+              text = "30";
+            } else if (count > 50 && count <= 99) {
+              size = 55;
+              backgroundColor = "#F76565"; // 50~99일 경우 색상 변경
+              text = "50";
+            } else if (count > 99) {
+              size = 55;
+              backgroundColor = "#F23D21"; // 99+일 경우 색상 변경
+              text = "99+";
+            }
+
+            span.textContent = text;
+
+            // 원의 크기, 배경 색상, 텍스트 색상 스타일 변경
+            const circle = el.querySelector("div");
+            if (circle) {
+              circle.style.width = `${size}px`;
+              circle.style.height = `${size}px`;
+              circle.style.backgroundColor = backgroundColor;
+              circle.style.borderRadius = "50%";
+              circle.style.display = "flex";
+              circle.style.alignItems = "center";
+              circle.style.justifyContent = "center";
+              circle.style.boxShadow = "0 0 12px 3px rgba(255,200,0,0.55), 0 2px 6px 0 rgba(0,0,0,0.13)";
+              circle.style.border = "1px solid #fff";
+            }
+          }
         }
       },
     });

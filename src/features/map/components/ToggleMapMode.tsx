@@ -55,7 +55,7 @@ const ToggleMapMode = ({ isMineOnly, onToggle }: ToggleMapModeProps) => {
         <div
           className={`w-36 h-36 flex items-center justify-center rounded-full bg-white shadow
           transition-transform duration-300
-          ${isMineOnly ? "translate-x-[-8px]" : "translate-x-[20px]"}`}
+          ${isMineOnly ? "translate-x-[-0px]" : "translate-x-[28px]"}`}
         >
           <GlobeIcon className={`w-24 h-24 ${isMineOnly ? "stroke-font-whitegrayLight" : "stroke-font-mainBlue"}`} />
         </div>

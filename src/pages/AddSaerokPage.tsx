@@ -90,7 +90,8 @@ const AddSaerokPage = () => {
           {isModalOpen && (
             <Modal
               maintext="작성 중인 내용이 있어요"
-              subtext="이대로 나가면 변경사항이 저장되지 않아요.\n취소할까요?"
+              subtext="이대로 나가면 변경사항이 저장되지 않아요.
+              취소할까요?"
               lefttext="나가기"
               righttext="계속하기"
               handleLeftClick={() => {
